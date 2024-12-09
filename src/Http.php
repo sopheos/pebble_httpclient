@@ -11,10 +11,10 @@ class Http
 {
     use OptionTrait;
 
-    public function __construct(string $baseUri = "")
+    public function __construct(string $baseUri = "", bool $httpErrors = false)
     {
         $this->addOption('base_uri', rtrim($baseUri, '/'));
-        $this->addOption(RequestOptions::HTTP_ERRORS, false);
+        $this->addOption(RequestOptions::HTTP_ERRORS, $httpErrors);
     }
 
     // -------------------------------------------------------------------------
