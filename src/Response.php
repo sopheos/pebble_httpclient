@@ -131,6 +131,6 @@ class Response
         }
 
         $data = json_decode($this->body, true);
-        return $data && is_array($data) ? $data : null;
+        return $data && is_array($data) ? $data : [];
     }
 }
