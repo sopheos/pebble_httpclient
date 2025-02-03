@@ -70,6 +70,7 @@ class Response
     private int $status;
     private array $headers;
     private ?string $body = null;
+    private ?array $json = null;
 
     /**
      * @param integer $status
@@ -117,6 +118,21 @@ class Response
     }
 
     public function json(): array
+    {
+        if ($this->json === null) {
+            $this->json = $this->parseJson();
+        }
+
+        return $this->json;
+    }
+
+    public function get(string $key): mixed
+    {
+        $data = $this->json();
+        return $data[$key] ?? null;
+    }
+
+    private function parseJson(): array
     {
         if (!$this->body) {
             return [];
