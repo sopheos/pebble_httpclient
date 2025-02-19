@@ -104,6 +104,11 @@ class Response
         ]);
     }
 
+    public function headers(): array
+    {
+        return $this->headers;
+    }
+
     public function header(string $name): ?string
     {
         if (!isset($this->headers[$name][0])) {
