@@ -12,7 +12,7 @@ trait OptionTrait
 
     public function getOptions(): array
     {
-        return  $this->options;
+        return $this->options;
     }
 
     public function setOptions(array $options = []): static

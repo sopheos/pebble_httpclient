@@ -90,6 +90,36 @@ class Http
         return new Response(504, [], $ex->getMessage());
     }
 
+    public function get(string $url = "/"): Response
+    {
+        return $this->one(Request::get($url));
+    }
+
+    public function post(string $url = "/"): Response
+    {
+        return $this->one(Request::post($url));
+    }
+
+    public function put(string $url = "/"): Response
+    {
+        return $this->one(Request::put($url));
+    }
+
+    public function patch(string $url = "/"): Response
+    {
+        return $this->one(Request::patch($url));
+    }
+
+    public function delete(string $url = "/"): Response
+    {
+        return $this->one(Request::delete($url));
+    }
+
+    public function options(string $url = "/"): Response
+    {
+        return $this->one(Request::options($url));
+    }
+
     /**
      * @param Request[]
      * @return Response[]
