@@ -80,7 +80,7 @@ class Response
     public function __construct(int $status, array $headers, ?string $body)
     {
         $this->status = $status;
-        $this->headers = $headers;
+        $this->headers = Helper::arrayLowerKey($headers);
         $this->body = $body;
     }
 
@@ -111,6 +111,7 @@ class Response
 
     public function header(string $name): ?string
     {
+        $name = mb_strtolower($name);
         if (!isset($this->headers[$name][0])) {
             return null;
         }
