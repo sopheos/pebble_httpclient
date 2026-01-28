@@ -148,7 +148,7 @@ class Response
             return [];
         }
 
-        if (self::is($type, 'application/json', 'application/vnd.api+json')) {
+        if (!self::is($type, 'application/json', 'application/vnd.api+json')) {
             return [];
         }
 
