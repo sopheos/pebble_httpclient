@@ -148,11 +148,22 @@ class Response
             return [];
         }
 
-        if (mb_strpos($type, 'application/json') === false) {
+        if (self::is($type, 'application/json', 'application/vnd.api+json')) {
             return [];
         }
 
         $data = json_decode($this->body, true);
         return $data && is_array($data) ? $data : [];
+    }
+
+    private static function is(string $haystack, string ...$needles): bool
+    {
+        foreach ($needles as $needle) {
+            if (str_contains($haystack, $needle)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
