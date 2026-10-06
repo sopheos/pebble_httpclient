@@ -1,9 +1,10 @@
 {
     "name": "sopheos/pebble_httpclient",
-    "description": "Guzzle wrapper",
+    "description": "Thin Guzzle wrapper: request builders, parallel requests and exception-free responses",
     "license": "MIT",
     "require": {
         "php": ">=8.1.0",
+        "ext-mbstring": "*",
         "guzzlehttp/guzzle": "^7.9"
     },
     "require-dev": {

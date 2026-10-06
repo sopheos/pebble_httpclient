@@ -1,4 +1,5 @@
-vendor
+vendor/
+debug/
 phpunit.phar
 phpunit.phar.asc
 composer.phar
